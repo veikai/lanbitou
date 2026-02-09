@@ -1,0 +1,207 @@
+/* 任务列表样式 */
+.controls {
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#searchInput {
+    padding: 0.7rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    flex: 1;
+    min-width: 200px;
+    font-size: 1rem;
+}
+
+#priorityFilter {
+    padding: 0.7rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    min-width: 150px;
+}
+
+.tasks-container {
+    overflow-x: auto;
+}
+
+#tasksTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#tasksTable thead {
+    background-color: #3498db;
+    color: white;
+}
+
+#tasksTable th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+#tasksTable td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+#tasksTable tbody tr:hover {
+    background-color: #f5f7fa;
+}
+
+.priority-badge {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+}
+
+.priority-1 {
+    background-color: #3498db;
+}
+
+.priority-2 {
+    background-color: #2ecc71;
+}
+
+.priority-3 {
+    background-color: #f1c40f;
+}
+
+.priority-4 {
+    background-color: #f39c12;
+}
+
+.priority-5 {
+    background-color: #e74c3c;
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.actions button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+}
+
+#loading, #noTasks {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.pagination {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pagination button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+#pageInfo {
+    font-weight: 600;
+    color: #555;
+}
+
+/* 模态框样式 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-content h3 {
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+.form-actions button {
+    min-width: 80px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    #tasksTable {
+        font-size: 0.9rem;
+    }
+
+    #tasksTable th,
+    #tasksTable td {
+        padding: 0.7rem 0.5rem;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .actions button {
+        width: 100%;
+    }
+}

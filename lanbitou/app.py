@@ -1,5 +1,5 @@
 import logging
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 import uuid
 
 from lanbitou.config import config
@@ -8,7 +8,7 @@ from lanbitou.extensions import db, validate
 
 def create_app(config_name='default'):
     """Application factory function."""
-    app = Flask(__name__)
+    app = Flask(__name__, template_folder="../templates", static_folder="../static")
 
     # Load configuration
     app.config.from_object(config[config_name])
@@ -30,6 +30,19 @@ def create_app(config_name='default'):
     @app.route('/health')
     def health():
         return jsonify({'status': 'ok', 'message': 'Lanbitou API is running'})
+
+    # Frontend routes
+    @app.route('/')
+    def index():
+        return render_template('index.html')
+
+    @app.route('/tasks')
+    def task_list():
+        return render_template('task_list.html')
+
+    @app.route('/tasks/new')
+    def add_task():
+        return render_template('add_task.html')
 
     # Error handlers
     @app.errorhandler(404)

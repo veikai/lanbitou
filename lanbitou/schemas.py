@@ -8,6 +8,7 @@ class TaskBase(BaseModel):
     title: str = Field(..., min_length=1, max_length=255, description="Task title")
     description: Optional[str] = Field(None, max_length=2000, description="Task description")
     deadline: Optional[datetime] = Field(None, description="Task deadline")
+    priority: Optional[int] = Field(default=3, ge=1, le=5, description="Task priority (1-5, 1 is highest)")
 
 
 class TaskCreate(TaskBase):
@@ -20,6 +21,7 @@ class TaskUpdate(BaseModel):
     title: Optional[str] = Field(None, min_length=1, max_length=255, description="Task title")
     description: Optional[str] = Field(None, max_length=2000, description="Task description")
     deadline: Optional[datetime] = Field(None, description="Task deadline")
+    priority: Optional[int] = Field(None, ge=1, le=5, description="Task priority (1-5, 1 is highest)")
 
     # Validation for at least one field will be handled in service layer
 

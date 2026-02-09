@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m flask:*)",
+      "Bash(uv sync:*)",
+      "Bash(uv run flask:*)",
+      "Bash(uv add:*)",
+      "Bash(uv run python:*)",
+      "Bash(curl:*)",
+      "Bash(python:*)"
+    ]
+  }
+}
